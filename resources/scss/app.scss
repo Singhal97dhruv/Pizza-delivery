@@ -34,3 +34,31 @@ section.hero{
         color: $pure;
     }
 }
+.btn-primary{
+    background-color: $primary;
+    &:hover{
+        transition: $smooth;
+        background-color: $primary-hover;
+    }
+}
+section.cart{
+    background: $secondary;
+}
+.amount{
+    color: $primary;
+    
+}
+.already-account{
+    color: $primary;
+    &:hover{
+        color: $primary-hover;
+    }
+}
+section.login{
+    background-color: $secondary;
+    // min-height: calc(100vh-86px);
+}
+section.register{
+    background-color: $secondary;
+    // height: 100vh;
+}
