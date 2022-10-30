@@ -66,3 +66,7 @@ section.login {
 section.register {
   background-color: #F8F8F8;
 }
+
+a.link {
+  color: #FE5F1E;
+}
