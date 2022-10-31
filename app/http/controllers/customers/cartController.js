@@ -24,7 +24,7 @@ function cartController() {
                     totalQty: 0,
                     totalPrice: 0
                 }
-                console.log(totalPrice);
+                console.log(req.session.cart.totalPrice);           /// not under control
             }
             let cart = req.session.cart
 
