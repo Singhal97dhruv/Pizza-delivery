@@ -50,7 +50,7 @@ mongoose.connection
     store: mongoStore,
     saveUninitialized: false,
     cookie: {maxAge: 1000*60*60*24}
-}))
+    }))
 
 //Passport config
 const passportInit=require('./app/config/passport')
@@ -96,7 +96,7 @@ app.set('views',path.join(__dirname,'/resources/views'));
 require('./routes/web')(app);
 
 const server=app.listen(PORT,()=>{
-    console.log(__dirname);
+    // console.log(__dirname);
     console.log("Listening on port 3000");
 })
 
@@ -104,9 +104,9 @@ const server=app.listen(PORT,()=>{
 
 const io=require('socket.io')(server)
 io.on('connection',(socket)=>{
-  console.log(socket.id)
+  // console.log(socket.id)
   socket.on('join',(orderId)=>{
-    console.log(orderId)
+    // console.log(orderId)
     socket.join(orderId)
   })
 }) 
