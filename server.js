@@ -15,8 +15,8 @@ const MongoDbStore=require('connect-mongo')(session)
 const Emitter= require('events')
 
 //Database Connection
-const url='mongodb://localhost/pizza';
-mongoose.connect(url,{useUnifiedTopology:true});
+// const url='mongodb://localhost/pizza';
+mongoose.connect(process.env.MONGO_CONNECTION_URL,{useUnifiedTopology:true});
 const connection=mongoose.connection;
 // connection.once('open',()=>{
 //     console.log("Database Connected");
