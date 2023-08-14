@@ -94,6 +94,9 @@ app.set('views',path.join(__dirname,'/resources/views'));
 // })
 
 require('./routes/web')(app);
+app.use((req,res)=>{
+  res.status(404).render('errors/404error')
+})
 
 const server=app.listen(PORT,()=>{
     // console.log(__dirname);

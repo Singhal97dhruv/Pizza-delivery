@@ -25,6 +25,15 @@
                 <li class="ml-6"><a href="/">Menu</a></li>
                 <!-- <li class="ml-6"><a href="#">Offers</a></li> -->
                 <% if(user){ %>
+                    <% if (user.role === 'customer') { %>
+                        <li class="ml-6">
+                            <a href="/orders">Orders</a>
+                        </li>
+                    <% } else if (user.role === 'admin') { %>
+                        <li class="ml-6">
+                            <a href="/admin/orders">Orders</a>
+                        </li>
+                    <% } %>
                     <li class="ml-6">
                         <form id="logout" action="/logout" method="POST">
                             <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>

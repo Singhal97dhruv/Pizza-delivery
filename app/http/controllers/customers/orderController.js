@@ -1,14 +1,20 @@
 const Order=require('../../../models/order')
+const validator=require('validator')
 const moment =require('moment')
 function orderController(){
     return {
         store(req,res){
-            // console.log(req.body);
             const{phone,address}=req.body
         if(!phone || !address){
-            req.flash('error','All fields are required');
+            req.flash('error','All Fields are required');
             return res.redirect('/cart');
         }
+
+        if (!validator.isMobilePhone(phone, 'any', { strictMode: false })) {
+            req.flash('error', 'Invalid phone number');
+            return res.redirect('/cart');
+        }
+
         const order=new Order({
             customerId: req.user._id,
             items: req.session.cart.items,
@@ -36,7 +42,7 @@ function orderController(){
             const orders = await Order.find({customerId: req.user._id},null,{sort : {'createdAt': -1}})
             req.header('Cache-Control','no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0')
             res.render('customer/orders',{orders: orders,moment:moment})
-            console.log(orders);
+            // console.log(orders);
         },
         async show(req,res){
             const order=await Order.findById(req.params.id)

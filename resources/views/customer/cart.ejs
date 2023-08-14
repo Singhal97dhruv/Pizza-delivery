@@ -27,9 +27,14 @@
             </div>
             <% if(user) {%>
             <div>
+                <% if(messages.error) { %>
+                <div class="mb-4 text-red-500 text-sm">
+                    <%= messages.error %>
+                </div>
+                <% } %>
                 <form action="/orders" method="post" class="mt-12">
                     <input name="phone" class="border border-gray-400 p-2 w-1/2 mb-4" type="text" placeholder="Phone-Number">
-                    <input name="address" class="border border-gray-400 p-2 w-1/2 mb-4" type="text" placeholder="Addressr">
+                    <input name="address" class="border border-gray-400 p-2 w-1/2 mb-4" type="text" placeholder="Address">
 
                     <div>
                         <button class="btn-primary px-6 py-2 rounded-full text-white font-bold" type="submit">Order Now</button>
